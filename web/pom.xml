@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.h2a</groupId>
+		<artifactId>neo4j-spring</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>web</artifactId>
+	<packaging>war</packaging>
+
+	<
+
+	<properties>
+		<custom>0.0.1-SNAPSHOT</custom>
+	</properties>
+
+	<dependencies>
+		<!-- Custom Dependencies -->
+		<dependency>
+			<groupId>com.h2a</groupId>
+			<artifactId>common</artifactId>
+			<version>${custom}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2a</groupId>
+			<artifactId>pojos</artifactId>
+			<version>${custom}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2a</groupId>
+			<artifactId>dao</artifactId>
+			<version>${custom}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.h2a</groupId>
+					<artifactId>common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.h2a</groupId>
+					<artifactId>pojos</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.h2a</groupId>
+			<artifactId>service</artifactId>
+			<version>${custom}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.h2a</groupId>
+					<artifactId>common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.h2a</groupId>
+					<artifactId>pojos</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.h2a</groupId>
+					<artifactId>dao</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Spring WEB -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<!-- Spring Transaction, Spring Data and Aspects -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-neo4j-aspects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-neo4j-tx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
